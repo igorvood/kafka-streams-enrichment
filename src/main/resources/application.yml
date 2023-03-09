@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:49092,localhost:39092,localhost:29092
+      bindings:
+        simpleStrPipe-in-0:
+          destination: dev_bevents__batch__ca_regulatory_client_id_of_profile__json
+      function:
+        definition: simpleStrPipe;
