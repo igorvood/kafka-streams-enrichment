@@ -4,7 +4,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: kafkastreamstopology
+        include: kafkastreamstopology, metrics
     enabled-by-default: true
   endpoint:
     info:
@@ -20,6 +20,7 @@ spring:
       bindings:
         simpleStrPipe-in-0:
           destination: dev_bevents__batch__ca_regulatory_client_id_of_profile__json
+          error-handler-definition: sDlqDestinationResolver
         simpleStrPipe-out-0:
           destination: dev_bevents__realtime__aggregate_first_salary__uaspdto
       function:
