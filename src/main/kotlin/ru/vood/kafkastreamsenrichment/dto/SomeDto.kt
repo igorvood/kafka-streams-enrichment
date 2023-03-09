@@ -1,5 +1,8 @@
 package ru.vood.kafkastreamsenrichment.dto
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class SomeDto(
     val id: String,
     val dataInt: Map<String, Int>,

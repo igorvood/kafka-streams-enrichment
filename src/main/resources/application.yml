@@ -1,11 +1,26 @@
+server:
+  port: 8002
+management:
+  endpoints:
+    web:
+      exposure:
+        include: kafkastreamstopology
+    enabled-by-default: true
+  endpoint:
+    info:
+      enabled: true
 spring:
   cloud:
     stream:
       kafka:
         binder:
           brokers: localhost:49092,localhost:39092,localhost:29092
+          metrics:
+            default-offset-lag-metrics-enabled: true
       bindings:
         simpleStrPipe-in-0:
           destination: dev_bevents__batch__ca_regulatory_client_id_of_profile__json
+        simpleStrPipe-out-0:
+          destination: dev_bevents__realtime__aggregate_first_salary__uaspdto
       function:
-        definition: simpleStrPipe;
+        definition: simpleStrPipe;simplePipe;
